@@ -23,7 +23,6 @@ export const Logo = styled.div`
 
 export const PrimaryButton = styled.button`
   padding: 10px 10px 10px 10px;
-  /* height: 32px; */
   background: #f94d6a;
   font-weight: bold;
   color: #fff;
