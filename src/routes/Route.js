@@ -12,7 +12,7 @@ const RouteWrapper = ({ component: Component, isPrivate, ...rest }) => {
   }
 
   if (signed && !isPrivate) {
-    return <Redirect to="/pedidos" />;
+    return <Redirect to="/meus-meetups" />;
   }
 
   return <Route {...rest} component={Component} />;
