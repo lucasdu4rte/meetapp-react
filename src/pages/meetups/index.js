@@ -5,48 +5,38 @@ import { useSelector } from 'react-redux';
 
 import moment from 'moment';
 import 'moment/locale/pt-br';
+import { Wrapper } from './styles';
 
 moment.locale('pt-br');
 
-const Orders = () => {
+const Meetups = () => {
   const user = useSelector(state => state.user.profile);
-  const [orders, setOrders] = useState([]);
+  const [meetups, setMeetups] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api.get('/orders').then(({ data }) => {
-      setOrders(
-        data
-          .map(order => ({
-            ...order,
-            totalFormated: new Intl.NumberFormat('pt-br', {
-              style: 'currency',
-              currency: 'BRL',
-            }).format(order.total),
-            orderDateFormated: moment(order.order_date).fromNow(),
-          }))
-          .sort((a, b) => moment(b.order_date) - moment(a.order_date))
-      );
-      setLoading(false);
-    });
+    // api.get('/meetups?date=2019-08-13').then(({ data }) => {
+    //   setMeetups(
+    //     data
+    //   );
+    //   setLoading(false);
+    // });
   }, []);
 
-  console.log('orders', orders);
-
   return (
-    <>
+    <Wrapper>
       <NavBar user={user} />
       <div className="container mb-2">
         <div className="columns">
           <div className="column col-8 col-mx-auto p-2 mt-2">
-            <strong>Últimos pedidos</strong>
+            <strong>Meus meetups</strong>
             <br />
 
             {loading && 'Carregando...'}
 
-            {orders.map(order => (
+            {meetups.map(meetup => (
               <div
-                key={order.id}
+                key={meetup.id}
                 className="card mt-2"
                 style={{
                   border: 0,
@@ -55,22 +45,22 @@ const Orders = () => {
               >
                 <div className="card-header">
                   <div className="card-title h6">
-                    Pedido <strong>#{order.id}</strong> - {order.user.name}
+                    Pedido <strong>#{meetup.id}</strong> - {meetup.user.name}
                   </div>
                   {/* há 2 segundos */}
                   <small className="card-subtitle text-gray">
-                    {order.orderDateFormated}
+                    {meetup.meetupDateFormated}
                   </small>{' '}
                   <br />
                   <strong className="card-subtitle text-dark">
-                    {order.totalFormated}
+                    {meetup.totalFormated}
                   </strong>
                 </div>
 
                 <div className="card-body">
                   <div className="divider" />
                   <div className="columns">
-                    {order.products.map(product => (
+                    {meetup.products.map(product => (
                       <div key={product.id} className="column col-4">
                         <div
                           className="tile p-2"
@@ -105,15 +95,15 @@ const Orders = () => {
 
                 <div className="card-footer">
                   <strong>Observações: </strong>
-                  {order.observation}
+                  {meetup.observation}
                 </div>
               </div>
             ))}
           </div>
         </div>
       </div>
-    </>
+    </Wrapper>
   );
 };
 
-export default Orders;
+export default Meetups;
