@@ -23,12 +23,10 @@ const Meetups = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // api.get('/meetups?date=2019-08-13').then(({ data }) => {
-    //   setMeetups(
-    //     data
-    //   );
-    //   setLoading(false);
-    // });
+    api.get('/my-meetups').then(({ data }) => {
+      setMeetups(data);
+      setLoading(false);
+    });
   }, []);
 
   return (
@@ -40,27 +38,15 @@ const Meetups = () => {
           <PrimaryButton>+ Novo meetup</PrimaryButton>
         </PageHeader>
         <List>
-          <ListItem>
-            <span className="title">Meetup 1</span>
-            <ListItemExtra>
-              <span>30 de Agosto, às 22h</span>
-              <span className="icon">{`>`}</span>
-            </ListItemExtra>
-          </ListItem>
-          <ListItem>
-            <span className="title">Meetup 1</span>
-            <ListItemExtra>
-              <span>30 de Agosto, às 22h</span>
-              <span className="icon">{`>`}</span>
-            </ListItemExtra>
-          </ListItem>
-          <ListItem>
-            <span className="title">Meetup 1</span>
-            <ListItemExtra>
-              <span>30 de Agosto, às 22h</span>
-              <span className="icon">{`>`}</span>
-            </ListItemExtra>
-          </ListItem>
+          {meetups.map(meetup => (
+            <ListItem key={meetup.id} to={`/meetups/${meetup.id}`}>
+              <span className="title">{meetup.title}</span>
+              <ListItemExtra>
+                <span>{meetup.date}</span>
+                <span className="icon">{`>`}</span>
+              </ListItemExtra>
+            </ListItem>
+          ))}
         </List>
       </Container>
     </Wrapper>
