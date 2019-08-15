@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   height: 100%;
@@ -51,7 +52,8 @@ export const PrimaryButton = styled.button`
 
 export const List = styled.div``;
 
-export const ListItem = styled.div`
+export const ListItem = styled(Link)`
+  text-decoration: none;
   background: rgba(0, 0, 0, 0.3);
   transition: background 0.2s;
   display: flex;
