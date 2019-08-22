@@ -29,7 +29,7 @@ export const PrimaryButton = styled.button`
   border: 0;
   border-radius: 4px;
   font-size: 16px;
-  transition: background 0.2s;
+  transition: background 0.5s;
 
   &:hover {
     background: ${darken(0.1, '#f94d6a')};

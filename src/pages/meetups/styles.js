@@ -43,7 +43,8 @@ export const PrimaryButton = styled.button`
   border: 0;
   border-radius: 4px;
   font-size: 16px;
-  transition: background 0.2s;
+  transition: background 0.5s;
+  cursor: pointer;
 
   &:hover {
     background: ${darken(0.1, '#f94d6a')};
@@ -55,7 +56,7 @@ export const List = styled.div``;
 export const ListItem = styled(Link)`
   text-decoration: none;
   background: rgba(0, 0, 0, 0.3);
-  transition: background 0.2s;
+  transition: background 0.5s;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -85,4 +86,115 @@ export const ListItemExtra = styled.div`
     color: rgba(255, 255, 255, 0.9);
     font-weight: bold;
   }
+`;
+
+export const ButtonsLeft = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ButtonsRight = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const BackButton = styled(Link)`
+  padding: 10px 10px 10px 0px;
+  background: transparent;
+  font-weight: bold;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: color 0.5s;
+  cursor: pointer;
+
+  &:hover {
+    color: ${darken(0.1, '#fff')};
+  }
+`;
+
+export const CancelButton = styled.button`
+  padding: 10px 10px 10px 10px;
+  background: #e74c3c;
+  font-weight: bold;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: background 0.5s;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  &:hover {
+    background: ${darken(0.1, '#e74c3c')};
+  }
+
+  .icon {
+    margin-right: 5px;
+  }
+`;
+
+export const EditButton = styled.button`
+  margin-right: 5px;
+  padding: 10px 10px 10px 10px;
+  background: #3498db;
+  font-weight: bold;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: background 0.5s;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  &:hover {
+    background: ${darken(0.1, '#3498db')};
+  }
+
+  .icon {
+    margin-right: 5px;
+  }
+`;
+
+export const PictureSection = styled.div`
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  img {
+    border-radius: 6px;
+    width: 100%;
+  }
+`;
+
+export const DescriptionSection = styled.div`
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: #fff;
+  text-align: justify;
+  line-height: 30px;
+`;
+
+export const DetailsSection = styled.div`
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  word-spacing: 3px;
+
+  .date {
+    margin-right: 20px;
+  }
+  .local {
+  }
+`;
+
+export const LoadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

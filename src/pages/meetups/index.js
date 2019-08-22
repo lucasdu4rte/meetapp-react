@@ -4,6 +4,9 @@ import api from 'api';
 import { useSelector } from 'react-redux';
 import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/esm/locale/pt-BR';
+import { Icon } from 'react-icons-kit';
+import { angleRight } from 'react-icons-kit/fa/angleRight';
+import Spinner from 'components/Spinner';
 import {
   Wrapper,
   Container,
@@ -12,6 +15,7 @@ import {
   List,
   ListItem,
   ListItemExtra,
+  LoadingContainer,
 } from './styles';
 
 const Meetups = () => {
@@ -26,7 +30,7 @@ const Meetups = () => {
           ...meetup,
           dateFormated: format(
             parseISO(meetup.date),
-            "dd ' de ' LLLL ' às ' HH'h'",
+            "dd ' de 'LLLL', às ' HH'h'",
             { locale: ptBR }
           ),
         }))
@@ -49,11 +53,19 @@ const Meetups = () => {
               <span className="title">{meetup.title}</span>
               <ListItemExtra>
                 <span>{meetup.dateFormated}</span>
-                <span className="icon">{`>`}</span>
+                <span className="icon">
+                  <Icon icon={angleRight} size={24} />
+                </span>
               </ListItemExtra>
             </ListItem>
           ))}
-          {loading && 'Carregando...'}
+          {loading && (
+            <LoadingContainer>
+              <Spinner
+                style={{ color: '#fff', width: '40px', height: '40px' }}
+              />
+            </LoadingContainer>
+          )}
         </List>
       </Container>
     </Wrapper>
