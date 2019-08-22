@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { signUpRequest } from 'store/modules/auth/actions';
+import Spinner from 'components/Spinner';
 import {
   Wrapper,
   Container,
@@ -40,7 +41,8 @@ const Signup = () => {
           <StyledInput name="email" placeholder="Email" />
           <StyledInput name="password" type="password" placeholder="Senha" />
 
-          <PrimaryButton spin={loading} type="submit">
+          <PrimaryButton disabled={loading} type="submit">
+            {loading && <Spinner style={{ margin: '0 5px', color: '#fff' }} />}
             Cadastrar
           </PrimaryButton>
           <LinkButton to="/">Já tenho conta</LinkButton>

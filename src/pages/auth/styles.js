@@ -79,7 +79,10 @@ export const PrimaryButton = styled.button`
   border: 0;
   border-radius: 4px;
   font-size: 18px;
-  transition: background 0.2s;
+  transition: background 0.5s;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 
   &:hover {
     background: ${darken(0.1, '#f94d6a')};
@@ -96,7 +99,7 @@ export const LinkButton = styled(Link)`
 
   cursor: pointer;
   opacity: 0.8;
-  transition: opacity 0.2s;
+  transition: opacity 0.5s;
   &:hover {
     opacity: 1;
   }
