@@ -37,9 +37,9 @@ const InputFilePreview = () => {
   return (
     <>
       <Container>
-        <label htmlFor="banner">
+        <label htmlFor="banner_id">
           {preview ? (
-            <img src={preview} alt="banner" />
+            <img src={preview} alt="Banner do meetup" />
           ) : (
             <>
               <Icon className="icon" icon={camera} size={32} />
@@ -49,7 +49,7 @@ const InputFilePreview = () => {
 
           <input
             type="file"
-            id="banner"
+            id="banner_id"
             accept="image/*"
             data-file={file}
             onChange={handleChange}

@@ -32,7 +32,7 @@ import {
 import InputFilePreview from './InputFilePreview/InputFilePreview';
 
 const schema = Yup.object().shape({
-  banner: Yup.string().required('Por favor, selecione uma imagem.'),
+  banner_id: Yup.string().required('Por favor, selecione uma imagem.'),
   title: Yup.string().required('Por favor, digite o titulo do meetup.'),
   description: Yup.string().required(
     'Por favor, digite uma descrição do meetup.'
@@ -83,7 +83,7 @@ const MeetupsDetails = ({
           schema={schema}
           initialData={meetupData}
         >
-          <InputFilePreview name="banner" />
+          <InputFilePreview name="banner_id" />
           <StyledInput
             name="title"
             autoComplete="off"
