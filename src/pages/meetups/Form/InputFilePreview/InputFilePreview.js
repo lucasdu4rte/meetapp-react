@@ -7,7 +7,7 @@ import { camera } from 'react-icons-kit/icomoon/camera';
 import { Container } from './styles';
 
 const InputFilePreview = () => {
-  const { defaultValue, registerField, error } = useField('banner');
+  const { defaultValue, registerField, error } = useField('banner_id');
   const [file, setFile] = useState(defaultValue && defaultValue.id);
   const [preview, setPreview] = useState(defaultValue && defaultValue.url);
   const ref = useRef();
@@ -15,7 +15,7 @@ const InputFilePreview = () => {
   useEffect(() => {
     if (!ref.current) {
       registerField({
-        name: 'banner',
+        name: 'banner_id',
         ref: ref.current,
         path: 'dataset.file',
       });

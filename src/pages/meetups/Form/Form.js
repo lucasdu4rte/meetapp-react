@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import * as Yup from 'yup';
-// import { format, parseISO } from 'date-fns';
+import { format, parseISO, addHours } from 'date-fns';
 // import ptBR from 'date-fns/esm/locale/pt-BR';
 import PropTypes from 'prop-types';
 import { Icon } from 'react-icons-kit';
@@ -30,9 +30,10 @@ import {
   StyledInput,
 } from './styles';
 import InputFilePreview from './InputFilePreview/InputFilePreview';
+import Datepicker from './Datepicker';
 
 const schema = Yup.object().shape({
-  banner_id: Yup.string().required('Por favor, selecione uma imagem.'),
+  banner_id: Yup.number().required('Por favor, selecione uma imagem.'),
   title: Yup.string().required('Por favor, digite o titulo do meetup.'),
   description: Yup.string().required(
     'Por favor, digite uma descrição do meetup.'
@@ -94,7 +95,20 @@ const MeetupsDetails = ({
             name="description"
             placeholder="Descrição completa"
           />
-          <StyledInput name="date" placeholder="Data do meetup" />
+          {/* <StyledInput name="date" placeholder="Data do meetup" /> */}
+
+          <Datepicker
+            name="date"
+            locale="pt-BR"
+            options={{
+              enableTime: true,
+              dateFormat: 'd/m/Y H:i',
+              minDate: addHours(new Date(), 12),
+              time_24hr: true,
+            }}
+            placeholder="Data do meetup"
+          />
+
           <StyledInput name="localization" placeholder="Localização" />
           <ButtonsRight>
             {/* <CancelButton>
