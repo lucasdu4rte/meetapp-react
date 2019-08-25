@@ -6,6 +6,7 @@ import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/esm/locale/pt-BR';
 import { Icon } from 'react-icons-kit';
 import { angleRight } from 'react-icons-kit/fa/angleRight';
+import { plusCircle } from 'react-icons-kit/fa/plusCircle';
 import Spinner from 'components/Spinner';
 import {
   Wrapper,
@@ -45,7 +46,10 @@ const Meetups = () => {
       <Container>
         <PageHeader>
           <h1 className="title">Meus meetups</h1>
-          <PrimaryButton>+ Novo meetup</PrimaryButton>
+          <PrimaryButton to="/meetups/cadastro">
+            <Icon icon={plusCircle} size={16} style={{ marginRight: '5px' }} />{' '}
+            Novo meetup
+          </PrimaryButton>
         </PageHeader>
         <List>
           {meetups.map(meetup => (

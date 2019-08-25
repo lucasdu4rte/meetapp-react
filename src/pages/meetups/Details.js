@@ -60,10 +60,15 @@ const MeetupsDetails = ({ match: { params } }) => {
           </ButtonsLeft>
           {/* ButtonsRight */}
           <ButtonsRight>
-            <EditButton disabled={meetup}>
+            <EditButton
+              to={{
+                pathname: meetup ? `/meetups/${meetup.id}/editar` : '#',
+                state: meetup,
+              }}
+            >
               <Icon className="icon" icon={pencil} size={12} /> Editar
             </EditButton>
-            <CancelButton disabled={meetup}>
+            <CancelButton>
               <Icon className="icon" icon={bin} size={12} /> Cancelar
             </CancelButton>
           </ButtonsRight>

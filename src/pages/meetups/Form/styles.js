@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 import { Link } from 'react-router-dom';
+import { Form, Input } from '@rocketseat/unform';
 
 export const Wrapper = styled.div`
   height: 100%;
@@ -52,43 +53,6 @@ export const PrimaryButton = styled(Link)`
   }
 `;
 
-export const List = styled.div``;
-
-export const ListItem = styled(Link)`
-  text-decoration: none;
-  background: rgba(0, 0, 0, 0.3);
-  transition: background 0.5s;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  padding: 15px 25px;
-
-  :hover {
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.5);
-  }
-
-  .title {
-    color: #fff;
-    font-weight: bold;
-  }
-`;
-
-export const ListItemExtra = styled.div`
-  display: flex;
-  align-items: center;
-  color: rgba(255, 255, 255, 0.7);
-
-  .icon {
-    margin-left: 35px;
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: bold;
-  }
-`;
-
 export const ButtonsLeft = styled.div`
   display: flex;
   justify-content: center;
@@ -99,6 +63,7 @@ export const ButtonsRight = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  /* align-self: right; */
 `;
 
 export const BackButton = styled(Link)`
@@ -139,7 +104,7 @@ export const CancelButton = styled.button`
   }
 `;
 
-export const EditButton = styled(Link)`
+export const SaveButton = styled.button`
   margin-right: 5px;
   padding: 10px 10px 10px 10px;
   background: #3498db;
@@ -149,7 +114,6 @@ export const EditButton = styled(Link)`
   border-radius: 4px;
   font-size: 16px;
   transition: background 0.5s;
-  text-decoration: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -163,40 +127,40 @@ export const EditButton = styled(Link)`
   }
 `;
 
-export const PictureSection = styled.div`
-  margin-top: 15px;
-  margin-bottom: 15px;
-
-  img {
-    border-radius: 6px;
-    width: 100%;
-  }
-`;
-
-export const DescriptionSection = styled.div`
-  margin-top: 15px;
-  margin-bottom: 15px;
-  color: #fff;
-  text-align: justify;
-  line-height: 30px;
-`;
-
-export const DetailsSection = styled.div`
-  display: flex;
-  align-items: center;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 13px;
-  word-spacing: 3px;
-
-  .date {
-    margin-right: 20px;
-  }
-  .local {
-  }
-`;
-
 export const LoadingContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const StyledForm = styled(Form)`
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+
+  span {
+    color: #ecf0f1;
+    margin-bottom: 10px;
+  }
+  button {
+    margin-top: 15px;
+  }
+`;
+
+export const StyledInput = styled(Input)`
+  background: rgba(0, 0, 0, 0.2);
+  border: 0;
+  border-radius: 4px;
+  height: ${props => (props.multiline ? '120px' : '44px')};
+  padding: ${props => (props.multiline ? '15px 15px' : '0px 15px')};
+  color: #fff;
+  margin: 0 0 10px;
+  resize: none;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.05px;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
 `;
