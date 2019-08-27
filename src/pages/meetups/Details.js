@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/esm/locale/pt-BR';
 import PropTypes from 'prop-types';
@@ -28,7 +27,6 @@ import {
 } from './styles';
 
 const MeetupsDetails = ({ match: { params } }) => {
-  const user = useSelector(state => state.user.profile);
   const [meetup, setMeetup] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -48,7 +46,7 @@ const MeetupsDetails = ({ match: { params } }) => {
 
   return (
     <Wrapper>
-      <NavBar user={user} />
+      <NavBar />
       <Container>
         <PageHeader>
           {/* ButtonsLeft */}
