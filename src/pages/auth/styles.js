@@ -62,7 +62,7 @@ export const StyledInput = styled(Input)`
   margin: 0 0 10px;
 
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: 1px;
 
   &::placeholder {
@@ -82,6 +82,7 @@ export const PrimaryButton = styled.button`
   transition: background 0.5s;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: center;
 
   &:hover {
