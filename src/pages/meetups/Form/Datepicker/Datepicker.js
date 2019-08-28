@@ -10,7 +10,7 @@ import { Container } from './styles';
 
 flatpickr.localize(Portuguese);
 
-function DatePicker({ name, ...rest }) {
+function DatePicker({ name }) {
   const ref = useRef(null);
   const { fieldName, registerField, defaultValue, error } = useField(name);
   const [selected, setSelected] = useState(defaultValue);
@@ -20,20 +20,24 @@ function DatePicker({ name, ...rest }) {
       name: fieldName,
       ref: ref.current,
       path: 'props.value',
-      clearValue: pickerRef => {
-        pickerRef.clear();
-      },
     });
   }, [ref.current, fieldName]); // eslint-disable-line
 
   return (
     <Container>
       <Flatpickr
+        locale="pt-BR"
+        options={{
+          enableTime: true,
+          dateFormat: 'd/m/Y H:i',
+          minDate: 'today',
+          time_24hr: true,
+        }}
         name={fieldName}
+        defaultValue={defaultValue}
         value={selected}
         onChange={date => setSelected(date)}
         ref={ref}
-        {...rest}
       />
       {error && <span>{error}</span>}
     </Container>
