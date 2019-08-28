@@ -2,6 +2,7 @@ import produce from 'immer';
 
 const initialState = {
   profile: null,
+  // loading: null,
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -17,6 +18,19 @@ export default (state = initialState, { type, payload }) => {
       }
       case '@auth/SIGN_OUT': {
         draft.profile = null;
+        break;
+      }
+      case '@profile/UPDATE_REQUEST': {
+        draft.loading = true;
+        break;
+      }
+      case '@profile/UPDATE_SUCCESS': {
+        draft.profile = payload.user;
+        draft.loading = false;
+        break;
+      }
+      case '@profile/UPDATE_FAILURE': {
+        draft.loading = false;
         break;
       }
       default:
