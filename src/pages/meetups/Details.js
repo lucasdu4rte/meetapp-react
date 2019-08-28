@@ -11,6 +11,8 @@ import { bin } from 'react-icons-kit/icomoon/bin';
 import NavBar from 'components/NavBar';
 import api from 'api';
 import Spinner from 'components/Spinner';
+import { toast } from 'react-toastify';
+import history from 'services/history';
 import {
   Wrapper,
   Container,
@@ -44,6 +46,25 @@ const MeetupsDetails = ({ match: { params } }) => {
     });
   }, [params.id]);
 
+  async function cancelMeetup() {
+    setLoading(true);
+
+    try {
+      await api.delete(`/meetups/${params.id}`);
+
+      toast.success('Meetup cancelado');
+      history.push('/meus-meetups');
+    } catch (error) {
+      const errorMsg = error.response
+        ? error.response.data.error
+        : 'Houve um problema, por favor revise os dados e tente novamente.';
+
+      toast.error(errorMsg);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <Wrapper>
       <NavBar />
@@ -66,7 +87,7 @@ const MeetupsDetails = ({ match: { params } }) => {
             >
               <Icon className="icon" icon={pencil} size={12} /> Editar
             </EditButton>
-            <CancelButton>
+            <CancelButton onClick={cancelMeetup}>
               <Icon className="icon" icon={bin} size={12} /> Cancelar
             </CancelButton>
           </ButtonsRight>
