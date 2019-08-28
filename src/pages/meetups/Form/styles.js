@@ -61,9 +61,8 @@ export const ButtonsLeft = styled.div`
 
 export const ButtonsRight = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  /* align-self: right; */
 `;
 
 export const BackButton = styled(Link)`
@@ -82,28 +81,6 @@ export const BackButton = styled(Link)`
   }
 `;
 
-export const CancelButton = styled.button`
-  padding: 10px 10px 10px 10px;
-  background: #e74c3c;
-  font-weight: bold;
-  color: #fff;
-  border: 0;
-  border-radius: 4px;
-  font-size: 16px;
-  transition: background 0.5s;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-
-  &:hover {
-    background: ${darken(0.1, '#e74c3c')};
-  }
-
-  .icon {
-    margin-right: 5px;
-  }
-`;
-
 export const SaveButton = styled.button`
   margin-right: 5px;
   padding: 10px 10px 10px 10px;
@@ -117,6 +94,7 @@ export const SaveButton = styled.button`
   cursor: pointer;
   display: flex;
   justify-content: center;
+  align-items: center;
 
   &:hover {
     background: ${darken(0.1, '#3498db')};
@@ -125,12 +103,6 @@ export const SaveButton = styled.button`
   .icon {
     margin-right: 5px;
   }
-`;
-
-export const LoadingContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
 export const StyledForm = styled(Form)`
