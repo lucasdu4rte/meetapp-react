@@ -26,8 +26,8 @@ export const Container = styled.div`
     }
 
     img {
-      /* height: 120px; */
-      width: 120px;
+      height: 190px;
+      /* width: 120px; */
     }
 
     input {
