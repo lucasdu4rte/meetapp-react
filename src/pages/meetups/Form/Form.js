@@ -21,7 +21,7 @@ import {
   StyledForm,
   StyledInput,
 } from './styles';
-import BannerInput from './BannerInput/BannerInput';
+import BannerInput from './BannerInput';
 import Datepicker from './Datepicker';
 
 const schema = Yup.object().shape({
@@ -40,7 +40,7 @@ const schema = Yup.object().shape({
   ),
 });
 
-const MeetupsDetails = ({ location: { state: meetupData } }) => {
+const MeetupForm = ({ location: { state: meetupData } }) => {
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(data) {
@@ -120,7 +120,7 @@ const MeetupsDetails = ({ location: { state: meetupData } }) => {
   );
 };
 
-MeetupsDetails.propTypes = {
+MeetupForm.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string,
@@ -133,4 +133,4 @@ MeetupsDetails.propTypes = {
   }).isRequired,
 };
 
-export default MeetupsDetails;
+export default MeetupForm;
