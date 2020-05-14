@@ -9,6 +9,8 @@ import { store, persistor } from 'store';
 import Routes from 'routes';
 
 function App() {
+  console.log(process.env);
+  console.log('REACT_APP_SECRET_CODE: ', process.env.REACT_APP_SECRET_CODE);
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
